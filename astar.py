@@ -114,3 +114,13 @@ class Puzzle:
 
 puz = Puzzle(3)
 puz.process()
+
+#input
+#1 2 3
+#5 6 _
+#7 8 4
+
+#goal
+#1 2 3
+#5 8 6
+#7 _ 4
