@@ -1,31 +1,27 @@
-print("===== Customer Support Chatbot =====")
+# import required libraries
+import random
 
-while True:
+# define bot's responses
+responses = {
+    "hi": ["Hello!", "Hi there!", "Hi! How can I assist you?"],
+    "bye": ["Goodbye!", "See you later!", "Bye! Have a great day."],
+    "default": ["I'm sorry, I didn't understand what you meant. Can you please rephrase?", 
+                "I'm not sure what you mean. Could you please provide more context?"]
+}
 
-    user = input("\nYou: ").lower()
-
-    if user == "hi" or user == "hello":
-        print("Bot: Hello! How can I help you?")
-
-    elif user == "who are you":
-        print("Bot: I am a virtual customer assistant.")
-
-    elif user == "where do you operate":
-        print("Bot: We operate from Singapore.")
-
-    elif user == "payment methods":
-        print("Bot: We accept debit cards and major credit cards.")
-
-    elif user == "customer service":
-        print("Bot: Please call +65 3333 3333")
-        print("Bot: Available Monday to Friday, 9 AM to 5 PM")
-
-    elif user == "timing":
-        print("Bot: Our working hours are 9 AM to 5 PM.")
-
-    elif user == "bye" or user == "ok":
-        print("Bot: Thank you! Have a nice day.")
-        break
-
+# define function to generate bot's response
+def get_bot_response(user_message):
+    if user_message in responses:
+        return random.choice(responses[user_message])
     else:
-        print("Bot: Sorry, I did not understand your question.")
+        return random.choice(responses["default"])
+
+# start chatting with the bot
+while True:
+    user_message = input("You: ")
+    if user_message.lower() == "quit":
+        break
+    bot_response = get_bot_response(user_message.lower())
+    print("Bot: " + bot_response)
+
+    
